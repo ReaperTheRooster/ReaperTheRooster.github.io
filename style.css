@@ -316,6 +316,50 @@ hr {
     color: var(--green-bright);
 }
 
+/* ---------- Subsections & toolkit grid ---------- */
+
+.subsection-title {
+    font-size: 1.15rem;
+    margin: 0 0 16px;
+    color: var(--green-bright);
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin: 0 0 44px;
+}
+
+.tool-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.tool-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.tool-item strong {
+    color: var(--text);
+    display: block;
+    margin-bottom: 3px;
+    font-size: 0.98rem;
+}
+
+.tool-item p {
+    color: var(--text-muted);
+    font-size: 0.87rem;
+    margin: 0;
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {

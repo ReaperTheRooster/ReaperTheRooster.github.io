@@ -90,7 +90,16 @@
         </div>
 
         <h2 class="section-title">Pentesting &amp; Security</h2>
-        <p class="section-intro">Where the "Reaper" side comes out — network penetration testing, CTF-style labs, and the environments built to practice in.</p>
+        <p class="section-intro">
+            This is where the "Reaper" side comes out, and it's the part of the site I want to lead with —
+            network penetration testing, CTF-style labs, and a homegrown Kali build engineered to be
+            reproducible, hardened, and fast to stand up for every new range.
+        </p>
+
+        <div class="still-grid">
+            <img src="images/recon-terminal.svg" alt="Stylized terminal mockup showing nmap, CrackMapExec, BloodHound, Hashcat, and Impacket run against a lab range">
+            <img src="images/kali-loadout.svg" alt="Stylized code editor view of the custom Kali build repo — bootstrap.sh, tools/, hardening/, and persistence/">
+        </div>
 
         <div class="card-grid">
             <div class="card">
@@ -114,21 +123,70 @@
             <div class="card">
                 <img src="images/kali-dragon.svg" alt="Kali Linux dragon logo" style="background:#0c0f0d; padding: 20px;">
                 <div class="card-body">
-                    <h3>Custom Kali Linux Build</h3>
+                    <h3>Custom Kali Linux Build — Design Notes</h3>
                     <p>
-                        A purpose-built Kali Linux image I maintain for pentesting and lab work — a curated
-                        tool loadout (rather than the full default set) trimmed to what actually gets used in
-                        engagements, plus custom scripts and automation for recon and setup, and hardening and
-                        persistence tweaks so the environment survives snapshots and re-deploys cleanly.
-                        Repo is private, but feel free to reach out if you'd like a look.
+                        A purpose-built Kali image I maintain for pentesting and lab work, designed around one
+                        idea: the stock install ships with everything, and most engagements only need a
+                        fraction of it. My build starts from a curated tool loadout instead of the full default
+                        set, trimmed to what actually gets reached for, with a bootstrap script that installs
+                        and pins that set so a fresh box comes up identical every time — no per-engagement setup
+                        decisions to re-make from scratch.
+                    </p>
+                    <p>
+                        Hardening and persistence get the same treatment as the toolset: unneeded services
+                        disabled by default, host identity randomized on boot, and dotfiles/configs kept as
+                        code so the environment survives snapshots, VM rebuilds, and persistent installs without
+                        drifting from what I've actually tested with. Repo is private, but feel free to reach
+                        out if you'd like a look.
                     </p>
                     <div class="tag-row">
                         <span class="tag">Custom Tooling</span>
                         <span class="tag">Hardening</span>
                         <span class="tag">Curated Loadout</span>
+                        <span class="tag">Reproducible Builds</span>
                         <span class="tag"><a href="https://github.com/ReaperTheRooster/kali-machine-image" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Private Repo ↗</a></span>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <h3 class="subsection-title">Go-To Toolkit</h3>
+        <div class="tool-grid">
+            <div class="tool-item">
+                <span class="tool-icon">🛰️</span>
+                <div><strong>Nmap</strong><p>Network discovery and service enumeration — the first thing that runs against any new range.</p></div>
+            </div>
+            <div class="tool-item">
+                <span class="tool-icon">🕷️</span>
+                <div><strong>Burp Suite</strong><p>Web app testing — intercepting, repeating, and fuzzing requests by hand.</p></div>
+            </div>
+            <div class="tool-item">
+                <span class="tool-icon">💥</span>
+                <div><strong>Metasploit</strong><p>Exploitation framework for weaponizing and delivering payloads once a vuln is confirmed.</p></div>
+            </div>
+            <div class="tool-item">
+                <span class="tool-icon">🩸</span>
+                <div><strong>BloodHound</strong><p>Maps Active Directory attack paths — who can reach domain admin, and how.</p></div>
+            </div>
+            <div class="tool-item">
+                <span class="tool-icon">🗝️</span>
+                <div><strong>CrackMapExec / NetExec</strong><p>Swiss-army knife for spraying, enumerating, and pivoting across Windows/AD environments.</p></div>
+            </div>
+            <div class="tool-item">
+                <span class="tool-icon">🐍</span>
+                <div><strong>Impacket</strong><p>Python libraries for crafting and abusing Windows protocols directly — SMB, Kerberos, WMI.</p></div>
+            </div>
+            <div class="tool-item">
+                <span class="tool-icon">📡</span>
+                <div><strong>Wireshark</strong><p>Packet capture and traffic analysis when something needs a closer look.</p></div>
+            </div>
+            <div class="tool-item">
+                <span class="tool-icon">🔓</span>
+                <div><strong>John the Ripper</strong><p>Offline password cracking against captured hashes.</p></div>
+            </div>
+            <div class="tool-item">
+                <span class="tool-icon">⚡</span>
+                <div><strong>Hashcat</strong><p>GPU-accelerated cracking for when John isn't fast enough.</p></div>
             </div>
         </div>
 

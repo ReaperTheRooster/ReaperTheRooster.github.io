@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" role="img" aria-label="Stylized code editor showing the custom Kali build repo structure and bootstrap script">
+  <defs>
+    <linearGradient id="klBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#121513"/>
+      <stop offset="100%" stop-color="#0c0f0d"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="1" y="1" width="998" height="638" rx="14" fill="url(#klBg)" stroke="#2a302c" stroke-width="2"/>
+
+  <!-- title bar -->
+  <rect x="1" y="1" width="998" height="46" rx="14" fill="#171b19"/>
+  <rect x="1" y="33" width="998" height="14" fill="#171b19"/>
+  <line x1="1" y1="47" x2="999" y2="47" stroke="#2a302c" stroke-width="1"/>
+  <circle cx="30" cy="24" r="7" fill="#c62828"/>
+  <circle cx="54" cy="24" r="7" fill="#e6b422"/>
+  <circle cx="78" cy="24" r="7" fill="#4caf50"/>
+  <text x="500" y="29" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#a4aca6">kali-build — bootstrap.sh</text>
+
+  <!-- sidebar -->
+  <rect x="1" y="47" width="240" height="591" fill="#151816"/>
+  <line x1="241" y1="47" x2="241" y2="638" stroke="#2a302c" stroke-width="1"/>
+
+  <g font-family="Consolas, 'Courier New', monospace" font-size="14">
+    <text x="20" y="80"  fill="#8fe396">kali-build/</text>
+    <text x="38" y="106" fill="#e7ebe8">bootstrap.sh</text>
+    <text x="38" y="132" fill="#8fe396">tools/</text>
+    <text x="56" y="158" fill="#a4aca6">loadout.txt</text>
+    <text x="56" y="184" fill="#a4aca6">install.sh</text>
+    <text x="38" y="210" fill="#8fe396">hardening/</text>
+    <text x="56" y="236" fill="#a4aca6">disable-services.sh</text>
+    <text x="56" y="262" fill="#a4aca6">randomize-id.sh</text>
+    <text x="38" y="288" fill="#8fe396">persistence/</text>
+    <text x="56" y="314" fill="#a4aca6">dotfiles/</text>
+    <text x="56" y="340" fill="#a4aca6">snapshot-restore.sh</text>
+    <text x="38" y="366" fill="#e7ebe8">README.md</text>
+  </g>
+
+  <!-- code pane -->
+  <g font-family="Consolas, 'Courier New', monospace" font-size="14.5" xml:space="preserve">
+    <text x="264" y="80"  fill="#7d8a80">#!/usr/bin/env bash</text>
+    <text x="264" y="106" fill="#7d8a80"># bootstrap.sh — reproducible Kali build</text>
+    <text x="264" y="132" fill="#e6b422">set -euo pipefail</text>
+
+    <text x="264" y="174" fill="#4caf50">echo</text><text x="304" y="174" fill="#c9e8cc"> "[*] installing curated loadout..."</text>
+    <text x="264" y="200" fill="#e7ebe8">xargs -a tools/loadout.txt apt install -y</text>
+
+    <text x="264" y="242" fill="#4caf50">echo</text><text x="304" y="242" fill="#c9e8cc"> "[*] applying hardening..."</text>
+    <text x="264" y="268" fill="#e7ebe8">./hardening/disable-services.sh</text>
+    <text x="264" y="294" fill="#e7ebe8">./hardening/randomize-id.sh</text>
+
+    <text x="264" y="336" fill="#4caf50">echo</text><text x="304" y="336" fill="#c9e8cc"> "[*] restoring dotfiles + configs..."</text>
+    <text x="264" y="362" fill="#e7ebe8">./persistence/snapshot-restore.sh</text>
+
+    <text x="264" y="404" fill="#4caf50">echo</text><text x="304" y="404" fill="#8fe396"> "[+] build complete — ready for range."</text>
+  </g>
+
+  <!-- status strip -->
+  <line x1="0" y1="606" x2="1000" y2="606" stroke="#2a302c" stroke-width="1"/>
+  <g font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#2e7d32" opacity="0.85">
+    <text x="20" y="626">bash · bootstrap.sh · curated loadout, hardened, reproducible on every rebuild</text>
+  </g>
+</svg>
